@@ -15,6 +15,7 @@ def setup(extensions: List[str] = None):
     caps["pageLoadStrategy"] = "eager"
 
     chrome_options = Options()
+    chrome_options.add_argument("--disable-web-security")
 
     if extensions is not None:
         for extension in extensions:
@@ -26,7 +27,10 @@ def setup(extensions: List[str] = None):
     return driver
 
 
-driver = setup()
+driver = setup([
+    # 'Allow CORS Access-Control-Allow-Origin 0.1.6.0.crx',
+    'WeCanInstagramPostsExporter-v2.3.crx',
+])
 
 
 def accept_all():
@@ -89,7 +93,7 @@ def loop(parentElement: WebElement = None):
             element.click()
             cnt +=1
 
-            time.sleep(8)
+            time.sleep(5)
 
             driver.find_element_by_xpath('//*[local-name() = "svg"][@aria-label="Close"]').click()
 
@@ -146,11 +150,13 @@ def check_recent_posts():
 
 # accept_all()
 # login()
+login('shahrad__azimi', '09210837687')
+
 
 not_now()
 hash_tags = [
-    # "آجیل",
-    "mi8sejogja",
+    "آجیل",
+    # "mi8sejogja",
 ]
 
 for hash_tag in hash_tags:
