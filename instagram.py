@@ -29,7 +29,7 @@ def setup(extensions: List[str] = None):
 
 driver = setup([
     # 'Allow CORS Access-Control-Allow-Origin 0.1.6.0.crx',
-    'WeCanInstagramPostsExporter-v2.3.crx',
+    'WeCanInstagramPostsExporter-v2.4.crx',
 ])
 
 
