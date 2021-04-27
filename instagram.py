@@ -148,40 +148,39 @@ def check_recent_posts():
     return loop(parentElement)
 
 
+def scroll():
+    SCROLL_PAUSE_TIME = 10
+    # Get scroll height
+    last_height = driver.execute_script("return document.body.scrollHeight")
+    while True:
+        # Scroll down to bottom
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+        # Wait to load page
+        time.sleep(SCROLL_PAUSE_TIME)
+
+        # Calculate new scroll height and compare with last scroll height
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        if new_height == last_height:
+            break
+        last_height = new_height
+
 # accept_all()
 # login()
-login('shahrad__azimi', '09210837687')
+# login('shahrad__azimi', '09210837687')
+login('wecan_co', '11315366666')
 
 
 not_now()
 hash_tags = [
-    "آجیل",
+    # "آجیل",
+    "برنج",
     # "mi8sejogja",
 ]
 
 for hash_tag in hash_tags:
     search(hash_tag)
-    print(check_top_posts() + check_recent_posts())
+    scroll()
 
+    # print(check_top_posts() + check_recent_posts())
 
-
-
-
-
-
-# SCROLL_PAUSE_TIME = 4
-## Get scroll height
-# last_height = driver.execute_script("return document.body.scrollHeight")
-# while True:
-#     # Scroll down to bottom
-#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-#
-#     # Wait to load page
-#     time.sleep(SCROLL_PAUSE_TIME)
-#
-#     # Calculate new scroll height and compare with last scroll height
-#     new_height = driver.execute_script("return document.body.scrollHeight")
-#     if new_height == last_height:
-#         break
-#     last_height = new_height
-# driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
