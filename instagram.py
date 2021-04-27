@@ -8,7 +8,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from typing import List
-
+import hashtags
 
 def setup(extensions: List[str] = None):
     caps = DesiredCapabilities().CHROME
@@ -167,18 +167,18 @@ def scroll():
 
 # accept_all()
 # login()
-# login('shahrad__azimi', '09210837687')
-login('wecan_co', '11315366666')
+
+
+
+
+login('shahrad__azimi', '09210837687')
+# login('wecan_co', '11315366666')
 
 
 not_now()
-hash_tags = [
-    # "آجیل",
-    "برنج",
-    # "mi8sejogja",
-]
 
-for hash_tag in hash_tags:
+
+for hash_tag in hashtags.get_hashtags():
     search(hash_tag)
     scroll()
 
